@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}*/
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+/*
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+.navbar {
+  height: 100%; /* Equivalente a h-20 (20/4 = 5) */
+  width: 100%; /* Equivalente a w-full */
+  border-bottom-width: 2px; /* Equivalente a border-b-2 */
+  display: flex; /* Equivalente a flex */
+  align-items: center; /* Equivalente a items-center */
+  justify-content: space-between; /* Equivalente a justify-between */
+  padding: 0.5rem; /* Equivalente a p-2 (2/4 = 0.5) */
+  font-size: clamp(0.8em, 3vw, 1.3em);
+}
+
+.login-form {
+  width: 700px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.newUsers-form {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 40px;
+}
+
+.form-user {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-dash {
+  width: 100%;
+  padding: 10px;
+  /* border-radius: 10px; */
+  color: #000000;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #ffffff;
+  margin-top: 14px;
+}
+
+button:hover {
+  background-color: #5287c05b;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.dashboard {
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #edecec;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.224);
+}
+
+.test {
+  /* border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.224); */
+  background-color: aqua;
+}
