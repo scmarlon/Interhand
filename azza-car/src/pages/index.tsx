@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Metadata } from "next";
 //import Layout from "./layout";
 import React from "react";
+import FileHandler from "../components/txtFiles/fileHandler";
 
 //const inter = Inter({ subsets: ["latin"] });
 
@@ -27,8 +28,9 @@ export default function Home({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      {children}
-      <Login />
+      {/* {children}
+      <Login /> */}
+      <FileHandler />
     </>
   );
 }
