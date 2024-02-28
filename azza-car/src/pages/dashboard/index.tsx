@@ -11,6 +11,14 @@ const Dashboard: React.FC = () => {
     router.push("/users/createUsers");
   };
 
+  const handleNewCar = () => {
+    router.push("/cars/createCars");
+  };
+
+  const handleNewCustomer = () => {
+    router.push("/customers/createCustomer");
+  };
+
   return (
     <div className="container">
       <div className="dashboard">
@@ -18,7 +26,7 @@ const Dashboard: React.FC = () => {
           <button className="button-dash" type="button" onClick={handleNewUser}>
             Crear nuevo Usuario
           </button>
-          <button className="button-dash" type="button" onClick={handleNewUser}>
+          <button className="button-dash" type="button" onClick={handleNewCar}>
             Crear nuevo Vehículo
           </button>
           <button className="button-dash" type="button" onClick={handleNewUser}>
@@ -27,7 +35,11 @@ const Dashboard: React.FC = () => {
           <button className="button-dash" type="button" onClick={handleNewUser}>
             Ver listado de vehículos
           </button>
-          <button className="button-dash" type="button" onClick={handleNewUser}>
+          <button
+            className="button-dash"
+            type="button"
+            onClick={handleNewCustomer}
+          >
             Crear clientes
           </button>
           <button className="button-dash" type="button" onClick={handleNewUser}>

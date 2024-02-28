@@ -10,7 +10,6 @@ const FileHandler = () => {
   let data = "";
   const loadData = async () => {
     const response = await fetch("/api/getUsers");
-    c;
     data = await response.json();
     setTimeout(async () => {
       const newArray = [...data.users, { nombre: "Lerq" }];
@@ -27,7 +26,7 @@ const FileHandler = () => {
       {archivoObjeto && (
         <div>
           <h1>Contenido del Archivo de Texto Convertido en Objeto:</h1>
-          {/* <pre>{JSON.stringify(archivoObjeto, null, 2)}</pre> */}
+          {<pre>{JSON.stringify(archivoObjeto, null, 2)}</pre>}
           <div>
             {/* <button onClick={createFile}>Guardar archivo</button> */}
           </div>
