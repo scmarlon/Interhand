@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 
 const createCars: React.FC = () => {
+  const [idCar, setIdCar] = useState(Math.random().toString(36).substr(2, 4));
   const [color, setColor] = useState("");
   const [year, setYear] = useState("");
   const [cylinder, setCylinder] = useState("");
@@ -25,11 +26,13 @@ const createCars: React.FC = () => {
       timer: 2500,
     });
   };
+  const id = Math.random().toString(36).substr(2, 4);
 
   const handlerCreateCar = async (e: any) => {
     e.preventDefault();
 
     const format = {
+      idCar,
       color,
       year,
       cylinder,
@@ -51,6 +54,14 @@ const createCars: React.FC = () => {
       body: JSON.stringify(newArray),
     });
     data = await response.json();
+    setColor("");
+    setYear("");
+    setCylinder("");
+    setBrand("");
+    setModel("");
+    setMileage("");
+    setType("");
+    setFeatures("");
     ShowAlert();
   };
 

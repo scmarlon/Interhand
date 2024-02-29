@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { GetUsersList } from "@/utils/queries";
 
 const LoginForm: React.FC = () => {
   //Variable hooks to set the data entered by the user
@@ -12,12 +13,20 @@ const LoginForm: React.FC = () => {
    * The function `handleLogin` checks if the provided username and password are correct and redirects
    * to the dashboard if successful.
    */
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (username === "1" && password === "1") {
+      localStorage.setItem("usuario", username);
       //Successful authentication
       setError("");
       router.push("/dashboard");
     } else {
+      const users = await GetUsersList();
+      users.map((user: any) => {
+        if (user.userMail === username && user.password === password) {
+          localStorage.setItem("usuario", username);
+          router.push("/dashboard");
+        }
+      });
       // Authentication failed
       setError("Usuario o contraseña incorrectos");
     }
@@ -26,7 +35,7 @@ const LoginForm: React.FC = () => {
   /* The `return` statement in the `LoginForm` component is rendering the JSX (JavaScript XML) code
   that represents the login form interface. Here's a breakdown of what the JSX code is doing: */
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <div className="login-form">
         <h2>Login</h2>
         <form>

@@ -19,6 +19,15 @@ const Dashboard: React.FC = () => {
     router.push("/customers/createCustomer");
   };
 
+  const handleExixt = () => {
+    localStorage.setItem("usuario", "");
+    router.push("/");
+  };
+
+  const handleCarsState = () => {
+    router.push("/cars/carsState");
+  };
+
   return (
     <div className="container">
       <div className="dashboard">
@@ -29,7 +38,11 @@ const Dashboard: React.FC = () => {
           <button className="button-dash" type="button" onClick={handleNewCar}>
             Crear nuevo Vehículo
           </button>
-          <button className="button-dash" type="button" onClick={handleNewUser}>
+          <button
+            className="button-dash"
+            type="button"
+            onClick={handleCarsState}
+          >
             Actualizar estado de vehículo
           </button>
           <button className="button-dash" type="button" onClick={handleNewUser}>
@@ -48,7 +61,7 @@ const Dashboard: React.FC = () => {
           <button className="button-dash" type="button" onClick={handleNewUser}>
             Consultar reportes
           </button>
-          <button className="button-dash" type="button" onClick={handleNewUser}>
+          <button className="button-dash" type="button" onClick={handleExixt}>
             Salir del sistema
           </button>
         </div>

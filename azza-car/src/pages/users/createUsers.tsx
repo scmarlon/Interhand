@@ -37,6 +37,12 @@ const createUsers: React.FC = () => {
     });
     data = await response.json();
     ShowAlert();
+    setName("");
+    setLastName("");
+    setUserId("");
+    setUserMail("");
+    setUserPhone("");
+    setPassword("");
   };
 
   const redirect = () => {
