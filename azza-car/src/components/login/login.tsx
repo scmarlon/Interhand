@@ -4,7 +4,7 @@ import { GetUsersList } from "@/utils/queries";
 
 const LoginForm: React.FC = () => {
   //Variable hooks to set the data entered by the user
-  const [username, setUsername] = useState("");
+  const [name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -14,16 +14,15 @@ const LoginForm: React.FC = () => {
    * to the dashboard if successful.
    */
   const handleLogin = async () => {
-    if (username === "1" && password === "1") {
-      localStorage.setItem("usuario", username);
-      //Successful authentication
+    if (name === "Master" && password === "Password") {
+      localStorage.setItem("usuario", name);
       setError("");
       router.push("/dashboard");
     } else {
       const users = await GetUsersList();
       users.map((user: any) => {
-        if (user.userMail === username && user.password === password) {
-          localStorage.setItem("usuario", username);
+        if (user.Mail === name && user.password === password) {
+          localStorage.setItem("usuario", user.Nombre);
           router.push("/dashboard");
         }
       });
@@ -44,7 +43,7 @@ const LoginForm: React.FC = () => {
             <input
               type="text"
               id="username"
-              value={username}
+              value={name}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>

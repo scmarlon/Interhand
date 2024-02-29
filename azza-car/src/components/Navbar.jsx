@@ -1,7 +1,7 @@
 "use client";
 import Swal from "sweetalert2";
 
-const Navbar = () => {
+const Navbar = ({ children }) => {
   const ShowInfo = () => {
     Swal.fire({
       title: "AzzaCar",
@@ -10,10 +10,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
-      <div className="test">
-        <i onClick={ShowInfo}>AzzaCar</i>
+    <div>
+      <div className="navbar">
+        <div className="test">
+          <i onClick={ShowInfo}>AzzaCar</i>
+        </div>
       </div>
+      {children}
     </div>
   );
 };

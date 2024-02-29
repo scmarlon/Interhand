@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function Home({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Navbar />
+      <Navbar children={undefined} />
       {children}
       <Login />
       {/* <FileHandler /> */}

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
+import Navbar from "@/components/Navbar";
 
 const createUsers: React.FC = () => {
   /* These lines of code are using the `useState` hook from React to create multiple state variables
   and their corresponding setter functions in a functional component. */
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userId, setUserId] = useState("");
-  const [userMail, setUserMail] = useState("");
-  const [userPhone, setUserPhone] = useState("");
+  const [Nombre, setNombre] = useState("");
+  const [Apellios, setApellios] = useState("");
+  const [Identificación, setIdentificación] = useState("");
+  const [Mail, setMail] = useState("");
+  const [Teléfono, setTeléfono] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
@@ -25,7 +26,14 @@ const createUsers: React.FC = () => {
 
   const handlerCreateUser = async (e: any) => {
     e.preventDefault();
-    const format = { name, lastName, userId, userMail, userPhone, password };
+    const format = {
+      Nombre,
+      Apellios,
+      Identificación,
+      Mail,
+      Teléfono,
+      password,
+    };
 
     let response = await fetch("/api/getUsers");
     let data = await response.json();
@@ -37,11 +45,11 @@ const createUsers: React.FC = () => {
     });
     data = await response.json();
     ShowAlert();
-    setName("");
-    setLastName("");
-    setUserId("");
-    setUserMail("");
-    setUserPhone("");
+    setNombre("");
+    setApellios("");
+    setIdentificación("");
+    setMail("");
+    setTeléfono("");
     setPassword("");
   };
 
@@ -50,77 +58,79 @@ const createUsers: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <div className="newUsers-form">
-        <h2>Nuevo Usuario</h2>
-        <form onSubmit={handlerCreateUser}>
-          <div className="form-user">
-            <label>Nombre:</label>
-            <input
-              required
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="form-user">
-            <label>Apellidos:</label>
-            <input
-              required
-              type="text"
-              id="lastName"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <div className="form-user">
-            <label>Identificación:</label>
-            <input
-              required
-              type="text"
-              id="userId"
-              value={userId}
-              onChange={(e) => setUserId(e.target.value)}
-            />
-          </div>
-          <div className="form-user">
-            <label>Correo electrónico:</label>
-            <input
-              required
-              type="text"
-              id="userMail"
-              value={userMail}
-              onChange={(e) => setUserMail(e.target.value)}
-            />
-          </div>
-          <div className="form-user">
-            <label>Teléfono:</label>
-            <input
-              required
-              type="text"
-              id="userPhone"
-              value={userPhone}
-              onChange={(e) => setUserPhone(e.target.value)}
-            />
-          </div>
-          <div className="form-user">
-            <label>Contraseña:</label>
-            <input
-              required
-              type="text"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit">Crear Usuario</button>
-        </form>
-        <button type="submit" onClick={redirect}>
-          Volver
-        </button>
+    <Navbar>
+      <div className="container mx-auto">
+        <div className="newUsers-form">
+          <h2>Nuevo Usuario</h2>
+          <form onSubmit={handlerCreateUser}>
+            <div className="form-user">
+              <label>Nombre:</label>
+              <input
+                required
+                type="text"
+                id="Nombre"
+                value={Nombre}
+                onChange={(e) => setNombre(e.target.value)}
+              />
+            </div>
+            <div className="form-user">
+              <label>Apellidos:</label>
+              <input
+                required
+                type="text"
+                id="Apellios"
+                value={Apellios}
+                onChange={(e) => setApellios(e.target.value)}
+              />
+            </div>
+            <div className="form-user">
+              <label>Identificación:</label>
+              <input
+                required
+                type="text"
+                id="Identificación"
+                value={Identificación}
+                onChange={(e) => setIdentificación(e.target.value)}
+              />
+            </div>
+            <div className="form-user">
+              <label>Correo electrónico:</label>
+              <input
+                required
+                type="text"
+                id="Mail"
+                value={Mail}
+                onChange={(e) => setMail(e.target.value)}
+              />
+            </div>
+            <div className="form-user">
+              <label>Teléfono:</label>
+              <input
+                required
+                type="text"
+                id="Teléfono"
+                value={Teléfono}
+                onChange={(e) => setTeléfono(e.target.value)}
+              />
+            </div>
+            <div className="form-user">
+              <label>Contraseña:</label>
+              <input
+                required
+                type="text"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit">Crear Usuario</button>
+          </form>
+          <button type="submit" onClick={redirect}>
+            Volver
+          </button>
+        </div>
       </div>
-    </div>
+    </Navbar>
   );
 };
 

@@ -129,7 +129,7 @@ button:hover {
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 .dashboard {
@@ -139,6 +139,14 @@ button:hover {
   border-radius: 10px;
   background-color: #edecec;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.224);
+}
+.carsDash {
+  font-size: 18px;
+}
+
+.carsP {
+  border-bottom-width: 4px;
+  margin-top: 2%;
 }
 
 .test {
