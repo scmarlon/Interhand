@@ -2,6 +2,10 @@
 import Swal from "sweetalert2";
 
 const Navbar = ({ children }) => {
+  /**
+   * The `ShowInfo` function displays a pop-up message using the `Swal.fire` method with information
+   * about AzzaCar.
+   */
   const ShowInfo = () => {
     Swal.fire({
       title: "AzzaCar",

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { GetCarsList } from "@/utils/queries";
 import Modal from "antd/lib/modal";
 import { GetUsersList } from "@/utils/queries";
 
@@ -19,6 +18,10 @@ const CarsState: React.FC = () => {
     setIsModalOpen(true);
   };
 
+  /**
+   * The function `getUsers` asynchronously fetches a list of users and sets them in the state variable
+   * `allUsers`.
+   */
   const getUsers = async () => {
     const customerList = await GetUsersList();
     setAllUsers(customerList);

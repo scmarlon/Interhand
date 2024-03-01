@@ -24,6 +24,15 @@ const createUsers: React.FC = () => {
     });
   };
 
+  /**
+   * The function `handlerCreateUser` is an asynchronous function that creates a new user by sending a
+   * POST request to an API endpoint with user data and then displays an alert message and resets input
+   * fields.
+   * @param {any} e - The `e` parameter in the `handlerCreateUser` function is typically an event
+   * object that is passed when the function is called, often used in event handling functions for web
+   * applications. In this case, it seems to be used to prevent the default behavior of a form
+   * submission using `e.preventDefault()
+   */
   const handlerCreateUser = async (e: any) => {
     e.preventDefault();
     const format = {

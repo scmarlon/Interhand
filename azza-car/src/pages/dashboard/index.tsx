@@ -75,13 +75,7 @@ const Dashboard: React.FC = () => {
             >
               Ver listado de clientes
             </button>
-            <button
-              className="button-dash"
-              type="button"
-              onClick={handleNewUser}
-            >
-              Consultar reportes
-            </button>
+
             <button className="button-dash" type="button" onClick={handleExixt}>
               Salir del sistema
             </button>

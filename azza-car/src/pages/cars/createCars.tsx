@@ -15,12 +15,15 @@ const createCars: React.FC = () => {
   const [Kilimetraje, setKilimetraje] = useState("");
   const [Tipo, setType] = useState("");
   const [Caracteristicas, setCaracteristicas] = useState("");
-  const [Estado, setEstado] = useState("disponible");
+  const [Estado, setEstado] = useState("Disponible");
   const [Cliente, setCliente] = useState("null");
   const [Vendedor, setVendedor] = useState("null");
 
   const router = useRouter();
 
+  /**
+   * The `ShowAlert` function displays a success message using the Swal library in React.
+   */
   const ShowAlert = () => {
     Swal.fire({
       icon: "success",
@@ -29,11 +32,9 @@ const createCars: React.FC = () => {
       timer: 2500,
     });
   };
-  const id = Math.random().toString(36).substr(2, 4);
 
   const handlerCreateCar = async (e: any) => {
     e.preventDefault();
-
     const format = {
       idCar,
       Color,

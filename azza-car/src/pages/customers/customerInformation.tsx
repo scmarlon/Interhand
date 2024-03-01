@@ -26,29 +26,17 @@ const CustomerInformation: React.FC = () => {
   const getCustomer = async () => {
     const customerList = await GetCustomerList();
     setAllCustomers(customerList);
-    // let number = 0;
-    // customerList.map((n: any) => {
-    //   if (n.VeC >= 1) {
-    //     number = number + 1;
-    //   }
-    // });
-    // setSustomersVC(number);
-
-    // let number2 = 0;
-    // customerList.map((n: any) => {
-    //   if (n.VeR >= 1) {
-    //     number2 = number2 + 1;
-    //   }
-    // });
-    // setSustomersVR(number2);
   };
 
+  /**
+   * This function retrieves a list of cars, counts the number of cars that are sold and reserved, and
+   * updates the corresponding state variables.
+   */
   const getCars = async () => {
     const carsList = await GetCarsList();
     setAllCars(carsList);
     let number = 0;
     carsList.map((n: any) => {
-      console.log(n);
       if (n.Estado === "Vendido") {
         number = number + 1;
       }

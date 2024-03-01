@@ -1,7 +1,10 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 
+/**
+ * This TypeScript function handles incoming requests by checking for the existence of a file, writing
+ * request body data to a file, and then responding with a JSON object.
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -19,6 +22,5 @@ export default async function handler(
       return;
     }
   });
-
   res.status(200).json({ name: "John Doe" });
 }

@@ -24,6 +24,10 @@ const createCustomer: React.FC = () => {
     });
   };
 
+  /**
+   * The function `ShowAlertError` displays an error alert message using the Swal library in a React
+   * application.
+   */
   const ShowAlertError = () => {
     Swal.fire({
       icon: "error",
@@ -42,7 +46,6 @@ const createCustomer: React.FC = () => {
     let data = await response.json();
 
     const customers = await GetCustomerList();
-    console.log("soy customers", customers);
     customers.map(async (customer: any) => {
       if (customer.Identificación === Identificación) {
         foundMatch = true;
