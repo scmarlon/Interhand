@@ -40,7 +40,7 @@ const CarsState: React.FC = () => {
       <div className="container">
         <div className="dashboard">
           <ul>
-            {allUsers.map((element, index) => (
+            {allUsers.map((element: any, index: any) => (
               <li key={index}>
                 <button
                   className="button-dash"
