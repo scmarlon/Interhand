@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import { Select } from "antd";
@@ -6,7 +6,6 @@ import { Select } from "antd";
 import Navbar from "@/components/Navbar";
 
 const createCars: React.FC = () => {
-  const [idCar, setIdCar] = useState(Math.random().toString(36).substr(2, 4));
   const [Color, setColor] = useState("");
   const [Año, setAño] = useState("");
   const [Cilindraje, setCilindraje] = useState("");
@@ -36,7 +35,6 @@ const createCars: React.FC = () => {
   const handlerCreateCar = async (e: any) => {
     e.preventDefault();
     const format = {
-      idCar,
       Color,
       Año,
       Cilindraje,

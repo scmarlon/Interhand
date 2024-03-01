@@ -12,7 +12,7 @@ const CarsState: React.FC = () => {
   const [allCustomers, setAllCustomers] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [carselect, setcarSelect] = useState([]);
+  const [carselect, setcarSelect] = useState<any>([]);
   const [status, setStatus] = useState("");
   const [customer, setCustomer] = useState();
   const [seller, setSeller] = useState("");
@@ -125,7 +125,7 @@ const CarsState: React.FC = () => {
       <div className="container mx-auto">
         <div className="dashboard">
           <ul>
-            {allCars.map((element, index) => (
+            {allCars.map((element: any, index: any) => (
               <li key={index}>
                 <button
                   className="button-dash"
@@ -185,91 +185,93 @@ const CarsState: React.FC = () => {
             }
           />
           <div style={{ padding: 10 }}>
-            {Object.entries(carselect).map(([property, value]) => {
-              if (carselect.Estado !== "Vendido") {
-                if (property === "Estado") {
-                  return (
-                    <div style={{ fontSize: 20 }}>
-                      <h1>Estado: </h1>
-                      <select
-                        id="status"
-                        value={allCars[index].Estado}
-                        onChange={(e) => {
-                          allCars[index].Estado = e.target.value;
-                          allCars[index].Vendedor = seller;
-                          setStatus(e.target.value);
-                        }}
-                      >
-                        <option value="Disponible">Disponible</option>
-                        <option value="Reservado">Reservado </option>
-                        <option value="Vendido">Vendido</option>
-                      </select>
-                    </div>
-                  );
-                }
-                if (property === "Cliente") {
-                  return (
-                    <div style={{ fontSize: 20 }}>
-                      <h1>Cliente: </h1>
-                      <select
-                        id="customer"
-                        value={allCars[index].Cliente}
-                        onChange={(e: any) => {
-                          allCars[index].Cliente = e.target.value;
-                          setCustomer(e.target.value);
-                        }}
-                      >
-                        {allCustomers.map((cutomer: any) => {
-                          return (
-                            <option value={cutomer.Identificación}>
-                              {cutomer.Nombre}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
-                  );
-                }
-
-                if (property === "Vendedor") {
-                  return (
-                    <div style={{ fontSize: 20 }}>
-                      <h1>Vendedor: </h1>
-                      <p style={{ fontSize: 20 }}>{seller}</p>
-                    </div>
-                  );
-                }
-              }
-
-              if (property === "Cliente") {
-                {
-                  let bool = false;
-                  let nameCustomer = "";
-                  allCustomers.map((customer: any) => {
-                    if (customer.Identificación === carselect.Cliente) {
-                      bool = true;
-                      nameCustomer = customer.Nombre;
-                    }
-                  });
-                  if (bool) {
+            {Object.entries(carselect).map(
+              ([property, value]: [string, any]) => {
+                if (carselect.Estado !== "Vendido") {
+                  if (property === "Estado") {
+                    return (
+                      <div style={{ fontSize: 20 }}>
+                        <h1>Estado: </h1>
+                        <select
+                          id="status"
+                          value={allCars[index].Estado}
+                          onChange={(e) => {
+                            allCars[index].Estado = e.target.value;
+                            allCars[index].Vendedor = seller;
+                            setStatus(e.target.value);
+                          }}
+                        >
+                          <option value="Disponible">Disponible</option>
+                          <option value="Reservado">Reservado </option>
+                          <option value="Vendido">Vendido</option>
+                        </select>
+                      </div>
+                    );
+                  }
+                  if (property === "Cliente") {
                     return (
                       <div style={{ fontSize: 20 }}>
                         <h1>Cliente: </h1>
-                        <p style={{ fontSize: 20 }}>{nameCustomer}</p>
+                        <select
+                          id="customer"
+                          value={allCars[index].Cliente}
+                          onChange={(e: any) => {
+                            allCars[index].Cliente = e.target.value;
+                            setCustomer(e.target.value);
+                          }}
+                        >
+                          {allCustomers.map((cutomer: any) => {
+                            return (
+                              <option value={cutomer.Identificación}>
+                                {cutomer.Nombre}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </div>
+                    );
+                  }
+
+                  if (property === "Vendedor") {
+                    return (
+                      <div style={{ fontSize: 20 }}>
+                        <h1>Vendedor: </h1>
+                        <p style={{ fontSize: 20 }}>{seller}</p>
                       </div>
                     );
                   }
                 }
+
+                if (property === "Cliente") {
+                  {
+                    let bool = false;
+                    let nameCustomer = "";
+                    allCustomers.map((customer: any) => {
+                      if (customer.Identificación === carselect.Cliente) {
+                        bool = true;
+                        nameCustomer = customer.Nombre;
+                      }
+                    });
+                    if (bool) {
+                      return (
+                        <div style={{ fontSize: 20 }}>
+                          <h1>Cliente: </h1>
+                          <p style={{ fontSize: 20 }}>{nameCustomer}</p>
+                        </div>
+                      );
+                    }
+                  }
+                }
+                if (property === "idCar") {
+                  return;
+                }
+                return (
+                  <p key={property} style={{ fontSize: 20 }}>
+                    {property}: {value}
+                  </p>
+                );
               }
-              if (property === "idCar") {
-                return;
-              }
-              return (
-                <p key={property} style={{ fontSize: 20 }}>
-                  {property}: {value}
-                </p>
-              );
-            })}
+            )}
           </div>
         </div>
 

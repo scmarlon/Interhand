@@ -6,7 +6,7 @@ import { GetCarsList } from "@/utils/queries";
 import Navbar from "@/components/Navbar";
 
 const CustomerInformation: React.FC = () => {
-  const [allCustomers, setAllCustomers] = useState([]);
+  const [allCustomers, setAllCustomers] = useState<any>([]);
   const [allCars, setAllCars] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [customerSelect, setCustomerSelect] = useState([]);
@@ -66,7 +66,7 @@ const CustomerInformation: React.FC = () => {
       <div className="container mx-auto">
         <div className="dashboard">
           <ul>
-            {allCustomers.map((element, index) => (
+            {allCustomers.map((element: any, index: any) => (
               <li key={index}>
                 <button
                   className="button-dash"
@@ -87,7 +87,7 @@ const CustomerInformation: React.FC = () => {
         <div className="dashboard">
           <p>Existen {allCustomers.length} de clientes registrados</p>
           <p>
-            {allCustomers.map((element, index) => (
+            {allCustomers.map((element: any, index: any) => (
               <li key={index}>
                 {element.Nombre} {element.Apellios}
               </li>
